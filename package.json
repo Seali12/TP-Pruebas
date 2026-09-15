@@ -1,0 +1,12 @@
+{
+  "name": "elephant-carpaccio-light",
+  "version": "1.0.0",
+  "description": "Sistema de facturacion minimalista (Elephant Carpaccio Light) - TP Calidad",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test"
+  },
+  "license": "ISC"
+}
