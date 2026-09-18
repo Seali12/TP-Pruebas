@@ -12,3 +12,14 @@ test('ejemplo de la consigna: quantity=10, price=100, state=CA', () => {
   assert.strictEqual(resultado.taxAmount, 80.025);
   assert.strictEqual(resultado.total, 1050.025);
 });
+
+test('Texas: quantity=100, price=100, state=TX', () => {
+  const resultado = calcularFactura(100, 100, 'TX');
+
+  assert.strictEqual(resultado.subtotal, 10000);
+  assert.strictEqual(resultado.discountPercent, 10);
+  assert.strictEqual(resultado.discountAmount, 1000);
+  assert.strictEqual(resultado.taxPercent, 6.25);
+  assert.strictEqual(resultado.taxAmount, 562.5);
+  assert.strictEqual(resultado.total, 9562.5);
+});
