@@ -23,3 +23,13 @@ test('Texas: quantity=100, price=100, state=TX', () => {
   assert.strictEqual(resultado.taxAmount, 562.5);
   assert.strictEqual(resultado.total, 9562.5);
 });
+
+test('Cantidad vacia: quantity=0, price=100, state=CA', () => {
+  const resultado = calcularFactura(0, 100, 'CA');
+  assert.strictEqual(resultado.subtotal, 0);
+  assert.strictEqual(resultado.discountPercent, 0);
+  assert.strictEqual(resultado.discountAmount, 0);
+  assert.strictEqual(resultado.taxPercent, 8.25);
+  assert.strictEqual(resultado.taxAmount, 0);
+  assert.strictEqual(resultado.total, 0);
+});
