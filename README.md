@@ -49,3 +49,7 @@ Para ejecutar la aplicacion basta con correr el comando `npm test`, esto deberia
 Se hizo el primer y segundo test probando el caso mas simple y feliz, usando una cantidad, precio real y estado coherente, se comprobo la salida esperada, un resultado exitoso, sin errores frente a unos datos normales y esperados por la aplicacion, los problemas surgieron cuando se empezo a poner datos invalidos. No haec falta probar todos los casos con datos correctos, ya que estamos buscando optimizar los test para encontrar la mayor cantidad de errores posibles
 ### Tercer Test
 El tercer test se probo una cantidad 0 y el precio de 100, esto funciona mal ya que se espera que el **taxPercent** sea nulo ya que al ser la cantidad 0 no se deberia aplicar ningun impuesto, por lo tanto deberia descartarlo o devolver 0, se corrige la aplicacion para tener en cuenta eso
+
+### Cuarto Test
+Se agrego un test para validar el caso inverso al tercer test: una cantidad valida pero con precio 0. El resultado esperado es que el subtotal sea 0, y por lo tanto descuento, impuesto y total tambien sean 0. Este test verifica que el sistema maneje correctamente el caso donde no hay valor unitario, independientemente de la cantidad solicitada. Es importante distinguir entre "no hay cantidad" (test 3) y "no hay precio" (test 4), ambos resultan en una transaccion nula pero son escenarios diferentes que podrían requerir validaciones o mensajes distintos
+

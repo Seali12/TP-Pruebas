@@ -24,12 +24,22 @@ test('Texas: quantity=100, price=100, state=TX', () => {
   assert.strictEqual(resultado.total, 9562.5);
 });
 
-test('Cantidad vacia: quantity=0, price=100, state=CA', () => {
+test('Cantidad cero: quantity=0, price=100, state=CA', () => {
   const resultado = calcularFactura(0, 100, 'CA');
   assert.strictEqual(resultado.subtotal, 0);
   assert.strictEqual(resultado.discountPercent, 0);
   assert.strictEqual(resultado.discountAmount, 0);
-  assert.strictEqual(resultado.taxPercent,0);
+  assert.strictEqual(resultado.taxPercent, 0);
+  assert.strictEqual(resultado.taxAmount, 0);
+  assert.strictEqual(resultado.total, 0);
+});
+
+test('Precio cero: quantity=10, price=0, state=CA', () => {
+  const resultado = calcularFactura(10, 0, 'CA');
+  assert.strictEqual(resultado.subtotal, 0);
+  assert.strictEqual(resultado.discountPercent, 0);
+  assert.strictEqual(resultado.discountAmount, 0);
+  assert.strictEqual(resultado.taxPercent, 0);
   assert.strictEqual(resultado.taxAmount, 0);
   assert.strictEqual(resultado.total, 0);
 });
