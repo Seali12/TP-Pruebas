@@ -21,6 +21,28 @@ Para ejecutar la aplicacion basta con correr el comando `npm start`, si falla ej
 Para ejecutar la aplicacion basta con correr el comando `npm test`, esto deberia tener una salida con los nombres de los test, su tiempo de ejecucion, los tipos y cantidad de test que hay.
 
 
+## Análisis de Variables
+
+### 1. Variables de Entrada (Ingreso)
+
+| Variable | Tipo | Escala | Valores posibles | Relación | Observación |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `quantity` | Número entero | >= 0 | 0, 1, 2, 3, ... | Multiplicador del precio para calcular subtotal | Define si hay compra o no |
+| `price` | Número decimal | >= 0 | 0, 0.01, 100, 1000, ... | Multiplicador de quantity para calcular subtotal | Valor unitario del producto |
+| `state` | String | 2 caracteres | CA, TX, AL, NV, UT | Determina el % de impuesto a aplicar | Solo 5 estados soportados |
+
+
+### 2. Variables de Salida (Resultado)
+
+| Variable | Tipo | Escala | Cómo se calcula | Relación | Observación |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `subtotal` | Número decimal | >= 0 | `quantity × price` | Referencia del valor bruto | Base de todo el cálculo |
+| `discountPercent` | Número (%) | 0-15 | Según escalón | Informa qué % se aplicó | 0 si subtotal < $1,000 |
+| `discountAmount` | Número decimal | >= 0 | `subtotal × discountPercent / 100` | Ahorro en pesos | Información para el usuario |
+| `taxPercent` | Número (%) | 0-8.25 | Según state | Informa qué % se aplicó | 0 si importeGravable = 0 |
+| `taxAmount` | Número decimal | >= 0 | `importeGravable × taxPercent / 100` | Costo adicional en pesos | Información para el usuario |
+| `total` | Número decimal | >= 0 | `importeGravable + importeImpuesto` | **Resultado final a pagar** | Subtotal - Descuento + Impuesto |
+
 ## Linea de Pensamiento
 
 ### Primer y segundo Test 

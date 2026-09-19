@@ -29,7 +29,7 @@ test('Cantidad vacia: quantity=0, price=100, state=CA', () => {
   assert.strictEqual(resultado.subtotal, 0);
   assert.strictEqual(resultado.discountPercent, 0);
   assert.strictEqual(resultado.discountAmount, 0);
-  assert.strictEqual(resultado.taxPercent, 8.25);
+  assert.strictEqual(resultado.taxPercent,0);
   assert.strictEqual(resultado.taxAmount, 0);
   assert.strictEqual(resultado.total, 0);
 });
