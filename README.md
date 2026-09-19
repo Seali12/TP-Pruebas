@@ -20,3 +20,10 @@ Para ejecutar la aplicacion basta con correr el comando `npm start`, si falla ej
 ### Ejecutar Test
 Para ejecutar la aplicacion basta con correr el comando `npm test`, esto deberia tener una salida con los nombres de los test, su tiempo de ejecucion, los tipos y cantidad de test que hay.
 
+
+## Linea de Pensamiento
+
+### Primer y segundo Test 
+Se hizo el primer y segundo test probando el caso mas simple y feliz, usando una cantidad, precio real y estado coherente, se comprobo la salida esperada, un resultado exitoso, sin errores frente a unos datos normales y esperados por la aplicacion, los problemas surgieron cuando se empezo a poner datos invalidos. No haec falta probar todos los casos con datos correctos, ya que estamos buscando optimizar los test para encontrar la mayor cantidad de errores posibles
+### Tercer Test
+El tercer test se probo una cantidad 0 y el precio de 100, esto funciona mal ya que se espera que el **taxPercent** sea nulo ya que al ser la cantidad 0 no se deberia aplicar ningun impuesto, por lo tanto deberia descartarlo o devolver 0, se corrige la aplicacion para tener en cuenta eso

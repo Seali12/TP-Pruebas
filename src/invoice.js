@@ -39,7 +39,7 @@ function calcularFactura(cantidad, precio, estado) {
   const importeDescuento = (subtotal * porcentajeDescuento) / 100;
 
   const importeGravable = subtotal - importeDescuento;
-  const porcentajeImpuesto = obtenerPorcentajeImpuesto(estado);
+  const porcentajeImpuesto = importeGravable > 0 ? obtenerPorcentajeImpuesto(estado) : 0;
   const importeImpuesto = (importeGravable * porcentajeImpuesto) / 100;
 
   const total = importeGravable + importeImpuesto;
